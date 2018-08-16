@@ -1,4 +1,7 @@
-import { Todo, TodoList, TodoView, AppView, Router } from './js/todo.js';
+import { Todo } from './js/model.js';
+import { TodoList } from './js/collection.js';
+import { TodoView, AppView } from './js/view.js';
+import { Router } from './js/router.js';
 
 let todoList = new TodoList();
 

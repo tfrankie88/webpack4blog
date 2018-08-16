@@ -1,33 +1,3 @@
-import { LocalStorage } from 'backbone.localStorage';
-
-// MODELS
-const Todo = Backbone.Model.extend({
-  defaults: {
-    title: '',
-    completed: false
-  },
-  toggle: function() {
-    this.save({
-      completed: !this.get('completed')
-    });
-  }
-});
-
-// COLLECTIONS
-const TodoList = Backbone.Collection.extend({
-  model: Todo,
-  localStorage: new LocalStorage('todos-backbone'),
-  completed: function() {
-    return this.filter(function(todo) {
-      return todo.get("completed");
-    });
-  },
-  remaining: function() {
-    return this.without.apply(this, this.completed());
-  }
-});
-
-// VIEWS
 const TodoView = Backbone.View.extend({
   initialize: function() {
     this.model.on("change", this.render, this);
@@ -116,14 +86,4 @@ const AppView = Backbone.View.extend({
   }
 });
 
-const Router = Backbone.Router.extend({
-  routes: {
-    ':filter': 'setFilter'
-  },
-  setFilter: function(params) {
-    window.filter = params.trim() || '';
-    this.collection.trigger('reset');
-  }
-});
-
-export { Todo, TodoList, TodoView, AppView, Router };
+export { TodoView, AppView };

@@ -7,9 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "start": "webpack-dev-server"
+    "start": "webpack --config webpack.config.js && webpack-dev-server"
   },
-  "author": "Tim Frankie",
+  "author": "m&m",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.26.3",
